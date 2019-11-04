@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        font-family: Verdana, Tahoma, Microsoft JhengHei;
+        font-size: 4vw;
+    }
+
+    table {
+        display: table;
+        border-collapse: separate;
+        border-spacing: 0;
+        padding: 1%;
+
+        width: 100vw;
+        height: 100vh;
+
+        border: 0.5vw solid #ccc;
+    }
+
+    td {
+        display: table-cell;
+        vertical-align: inherit;
+
+        border: 0.1vw solid #ccc;
+        text-align: center;
+    }
+
+    input[type="button" i] {
+    -webkit-appearance: push-button;
+    user-select: none;
+    white-space: pre;
+    align-items: flex-start;
+    text-align: center;
+    cursor: default;
+    color: buttontext;
+    /* background-color: buttonface; */
+    box-sizing: border-box;
+    padding: 1px 1px;
+    border-width: 1px;
+    /* border-style: outset; */
+    border-color: buttonface;
+    border-image: initial;
+
+    font-size: 3vw;
+    width: 13vw;
+    height: 4vw;
+    }
+
+    button {
+    -webkit-appearance: button;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    background-color: buttonface;
+    box-sizing: border-box;
+    margin: 0em;
+    /* font: 400 13.3333px Arial; */
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonface;
+    border-image: initial;
+
+    font-size: 4vw;
+    }
+</style>
+<body>
+    <table>
+        <tr>
+            <td><input type="button" value="1~2月"></td>
+            <td><input type="button" value="3~4月"></td>
+            <td><input type="button" value="5~6月"></td>
+            <td><input type="button" value="7~8月"></td>
+            <td><input type="button" value="9~10月"></td>
+            <td><input type="button" value="11~12月"></td>
+        </tr>
+        <tr>
+            <td colspan="2">XXXX年</td>
+            <td colspan="2">XX月</td>
+            <td colspan="2"><button name="match" id="match">對獎</button></td>
+        </tr>
+        <tr>
+            <td>特別獎</td>
+            <td colspan="4"></td>
+            <td>1000萬</td>
+        </tr>
+        <tr>
+            <td>特獎</td>
+            <td colspan="4"></td>
+            <td>200萬</td>
+        </tr>
+        <tr>
+            <td>頭獎</td>
+            <td colspan="4"></td>
+            <td>20萬</td>
+        </tr>
+        <tr>
+            <td>二獎</td>
+            <td colspan="4">末7位數號碼與頭獎末7位數相同</td>
+            <td>4萬元</td>
+        </tr>
+        <tr>
+            <td>三獎</td>
+            <td colspan="4">末6位數號碼與頭獎末6位數相同</td>
+            <td>1萬元</td>
+        </tr>
+        <tr>
+            <td>四獎</td>
+            <td colspan="4">末5位數號碼與頭獎末5位數相同</td>
+            <td>4千元</td>
+        </tr>
+        <tr>
+            <td>五獎</td>
+            <td colspan="4">末4位數號碼與頭獎末4位數相同</td>
+            <td>1千元</td>
+        </tr>
+        <tr>
+            <td>六獎</td>
+            <td colspan="4">末3位數號碼與頭獎末3位數相同</td>
+            <td>2百元</td>
+        </tr>
+        <tr>
+            <td>增開</td>
+            <td colspan="4"></td>
+            <td>2百元</td>
+        </tr>
+    </table>
+</body>
+</html>

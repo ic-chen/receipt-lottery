@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        font-family: Verdana, Tahoma, Microsoft JhengHei;
+        font-size: 5vw;
+    }
+    table {
+        display: table;
+        border-collapse: separate;
+        border-spacing: 0;
+        padding: 4%;
+
+        width: 100vw;
+        height: 100vh;
+
+        border: 0.5vw solid #ccc;
+    }
+
+    table tr {
+        height: 20%;
+    }
+
+    table tr td:nth-child(1) {
+        width: 40%;
+    }
+
+    table tr td:nth-child(2) {
+        width: 60%;
+    }
+
+    input {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    /* font: 400 13.3333px Arial; */
+    padding: 0px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+
+    width: 60%;
+    font-family: Verdana, Tahoma, Microsoft JhengHei;
+    font-size: 5vw;
+    }
+
+    input[type="submit" i], input[type="reset" i] {
+    -webkit-appearance: push-button;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    background-color: buttonface;
+    box-sizing: border-box;
+    margin: 0em;
+    /* font: 400 13.3333px Arial; */
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonface;
+    border-image: initial;
+
+    text-align: center;
+    width: 25%;
+    }
+
+    #en {
+    width: 17%;
+    }
+
+    select {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: black;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    -webkit-appearance: menulist;
+    box-sizing: border-box;
+    align-items: center;
+    white-space: pre;
+    -webkit-rtl-ordering: logical;
+    background-color: white;
+    cursor: default;
+    margin: 0em;
+    /* font: 400 13.3333px Arial; */
+    border-radius: 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(169, 169, 169);
+    border-image: initial;
+
+    font-size: 5vw;
+    }
+    </style>
+<body>
+<form action="" method="post">
+    <table>
+        <tr>
+            <td>年分：</td>
+            <td><input type="number" name="year" id="year"></td>
+        </tr>
+        <tr>
+            <td>期數：</td>
+            <td>
+                <select name="month" id="month">
+                    <option value="1+2">1~2月</option>
+                    <option value="3+4">3~4月</option>
+                    <option value="5+6">5~6月</option>
+                    <option value="7+8">7~8月</option>
+                    <option value="9+10">9~10月</option>
+                    <option value="10+1">11~12月</option>
+            </td>
+        </tr>
+        <tr>
+            <td>發票號碼：</td>
+            <td>
+                <input type="text" name="en" id="en">
+                -
+                <input type="number" name="num" id="num">
+            </td>
+        </tr>
+        <tr>
+            <td>發票金額：</td>
+            <td><input type="number" name="amount" id="amount"></td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+                <input type="submit" name="submit" id="submit" value="送出">
+                &nbsp;
+                <input type="reset" name="reset" id="reset" value="清除">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
