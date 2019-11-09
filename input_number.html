@@ -5,36 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel=stylesheet type="text/css" href="./css/main.css">
 </head>
 <style>
-    body {
-        margin: 0;
-        font-family: Verdana, Tahoma, Microsoft JhengHei;
-        font-size: 4vw;
-    }
-
-    table {
-        display: table;
-        border-collapse: separate;
-        border-spacing: 0;
-        padding: 1%;
-
-        width: 100vw;
-        height: 100vh;
-
-        border: 0.5vw solid #ccc;
-    }
-
-    table tr td:not(:nth-child(1)) {
-        display: table-cell;
-        vertical-align: inherit;
-
-        border: 0.1vw solid #ccc;
-        text-align: center;
-    }
-
     table tr td:nth-child(1) {
-        border: 0.1vw solid #ccc;
         width: 18%;
     }
 
@@ -42,92 +16,8 @@
         width: 18%;
     }
 
-    input {
-    -webkit-writing-mode: horizontal-tb !important;
-    text-rendering: auto;
-    color: initial;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: start;
-    -webkit-appearance: textfield;
-    background-color: white;
-    -webkit-rtl-ordering: logical;
-    cursor: text;
-    margin: 0em;
-    /* font: 400 13.3333px Arial; */
-    padding: 0px;
-    border-width: 2px;
-    border-style: inset;
-    border-color: initial;
-    border-image: initial;
-
-    width: 60%;
-    font-family: Verdana, Tahoma, Microsoft JhengHei;
-    font-size: 4vw;
-    }
-
     #extra1, #extra2, #extra3 {
-    width: 20%;
-    }
-
-    select {
-    -webkit-writing-mode: horizontal-tb !important;
-    text-rendering: auto;
-    color: black;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: center;
-    -webkit-appearance: menulist;
-    box-sizing: border-box;
-    align-items: center;
-    white-space: pre;
-    -webkit-rtl-ordering: logical;
-    background-color: white;
-    cursor: default;
-    margin: 0em;
-    /* font: 400 13.3333px Arial; */
-    border-radius: 0px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(169, 169, 169);
-    border-image: initial;
-
-    font-size: 4vw;
-    }
-
-    input[type="submit" i], input[type="reset" i] {
-    -webkit-appearance: push-button;
-    text-rendering: auto;
-    color: buttontext;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: center;
-    align-items: flex-start;
-    cursor: default;
-    background-color: buttonface;
-    box-sizing: border-box;
-    margin: 0em;
-    /* font: 400 13.3333px Arial; */
-    padding: 1px 6px;
-    border-width: 2px;
-    border-style: outset;
-    border-color: buttonface;
-    border-image: initial;
-
-    text-align: center;
-    width: 50%;
+        width: 20%;
     }
 </style>
 <body>
@@ -142,12 +32,12 @@
             <td>期數：</td>
             <td colspan="2">
                     <select name="month" id="month">
-                            <option value="1+2">1~2月</option>
-                            <option value="3+4">3~4月</option>
-                            <option value="5+6">5~6月</option>
-                            <option value="7+8">7~8月</option>
-                            <option value="9+10">9~10月</option>
-                            <option value="10+1">11~12月</option>
+                            <option value="1,2">1~2月</option>
+                            <option value="3,4">3~4月</option>
+                            <option value="5,6">5~6月</option>
+                            <option value="7,8">7~8月</option>
+                            <option value="9,10">9~10月</option>
+                            <option value="10,1">11~12月</option>
             </td>
             <td></td>
         </tr>
