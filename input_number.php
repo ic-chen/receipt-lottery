@@ -1,3 +1,4 @@
+<link rel=stylesheet type="text/css" href="./css/main.css">
 <?php
 include_once "db_info.php";
 
