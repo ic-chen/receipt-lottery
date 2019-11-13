@@ -1,10 +1,39 @@
 <?php
+include_once "db_info.php";
+
 $year=date("Y");
 
+function showList($m) {
+    global $pdo;
+    $year=date("Y");
+    $sql="SELECT * FROM `lottery` WHERE `year`='$year' && `month`='$m'";
+    // echo $sql;
+    $data=$pdo->query($sql)->fetch();
+    return $data;
+}
 if(isset($_POST['submit'])) {
-    $mon=$_POST['submit'];
+    $month=["1~2月", "3~4月", "5~6月", "7~8月", "9~10月", "11~12月"];
+    if($_POST['submit']==$month[0]) {
+        $prizeNum=showList("1,2");
+    }
+    if($_POST['submit']==$month[1]) {
+        $prizeNum=showList("3,4");
+    }
+    if($_POST['submit']==$month[2]) {
+        $prizeNum=showList("5,6");
+    }
+    if($_POST['submit']==$month[3]) {
+        $prizeNum=showList("7,8");
+    }
+    if($_POST['submit']==$month[4]) {
+        $prizeNum=showList("9,10");
+    }
+    if($_POST['submit']==$month[5]) {
+        $prizeNum=showList("11,12");
+    }
 } else {
-    $mon="0月";
+    $_POST['submit']="0月";
+    $prizeNum=["暫無資料", "暫無資料", "暫無資料", "暫無資料", "暫無資料", "暫無資料", "暫無資料", "暫無資料", "暫無資料", "暫無資料", "暫無資料"];
 }
 ?>
 <!DOCTYPE html>
@@ -43,62 +72,29 @@ input[type="submit" i] {
         </tr>
         <tr>
             <td colspan="2"><?=$year;?>年</td>
-            <td colspan="2"><?=$mon;?></td>
-<?php
-include_once "db_info.php";
-
-if(isset($_POST['submit'])) {
-    $month=["1~2月", "3~4月", "5~6月", "7~8月", "9~10月", "11~12月"];
-    if($_POST['submit']==$month[0]) {
-        showList("1,2");
-    }
-    if($_POST['submit']==$month[1]) {
-        showList("3,4");
-    }
-    if($_POST['submit']==$month[2]) {
-        showList("5,6");
-    }
-    if($_POST['submit']==$month[3]) {
-        showList("7,8");
-    }
-    if($_POST['submit']==$month[4]) {
-        showList("9,10");
-    }
-    if($_POST['submit']==$month[5]) {
-        showList("11,12");
-    }
-} else {
-    $_POST['submit']="0月";
-}
-function showList($m) {
-    global $pdo;
-    $year=date("Y");
-    $sql="SELECT * FROM `lottery` WHERE `year`='$year' && `month`='$m'";
-    // echo $sql;
-    $data=$pdo->query($sql)->fetch();
-?>
+            <td colspan="2"><?=$_POST['submit'];?></td>
             <td colspan="2">
-                <input type="button" name="button" value="對獎" onclick="location.href='lottery.php?year=<?=$year;?>&month=<?=$m;?>'">
+                <input type="button" name="button" value="對獎" onclick="location.href='lottery.php?year=<?=$year;?>&month=<?=$prizeNum[2];?>'">
             </td>
         </tr>
         <tr>
             <td>特別獎</td>
             <td colspan="4">
-                <?=$data['special'];?>
+                <?=$prizeNum[3];?>
             </td>
             <td>1000萬</td>
         </tr>
         <tr>
             <td>特獎</td>
             <td colspan="4">
-                <?=$data['grand'];?>
+                <?=$prizeNum[4];?>
             </td>
             <td>200萬</td>
         </tr>
         <tr>
             <td>頭獎</td>
             <td colspan="4">
-                <?=$data['first1']."<br>";?><?=$data['first2']."<br>";?><?=$data['first3'];?>
+                <?=$prizeNum[5]."<br>";?><?=$prizeNum[6]."<br>";?><?=$prizeNum[7];?>
             </td>
             <td>20萬</td>
         </tr>
@@ -130,13 +126,10 @@ function showList($m) {
         <tr>
             <td>增開</td>
             <td colspan="4">
-                <?=$data['extra1']."<br>";?><?=$data['extra2']."<br>";?><?=$data['extra3'];?>
+                <?=$prizeNum[8]."<br>";?><?=$prizeNum[9]."<br>";?><?=$prizeNum[10];?>
             </td>
             <td>2百元</td>
         </tr>
-<?php
-}
-?>
     </table>
 </form>
 </body>
