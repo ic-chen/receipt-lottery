@@ -57,35 +57,42 @@ FROM `receipt` WHERE `year`='$year' && `month`='$month'";
 $data=$pdo->query($sqlRecpt)->fetchAll();
 ?>
 
-中獎編號如下：<br><br>
-
 <?php
-$index = 0;
-foreach($data as $value) {
-    if(in_array($value[0],$special)) {
-        echo "特別獎：".$value[0]." | 獎金：1000萬元<br>";
-    } elseif(in_array($value[0],$grand)) {
-        echo "特獎：".$value[0]." | 獎金：200萬元<br>";
-    } elseif(in_array($value[0],$one)) {
-        echo "頭獎：".$value[0]." | 獎金：20萬元<br>";
-    } elseif(in_array($value[2],$two)) {
-        echo "二獎：".$value[0]." | 獎金：4萬元<br>";
-    } elseif(in_array($value[3],$three)) {
-        echo "三獎：".$value[0]." | 獎金：1萬元<br>";
-    } elseif(in_array($value[4],$four)) {
-        echo "四獎：".$value[0]." | 獎金：4千元<br>";
-    } elseif(in_array($value[5],$five)) {
-        echo "五獎：".$value[0]." | 獎金：1千元<br>";
-    } elseif(in_array($value[6],$six)) {
-        echo "六獎：".$value[0]." | 獎金：200元<br>";
+if(!empty($year) && !empty($month)) {
+    if($month=="無") {
+        echo "<br>你沒有選擇月分。<br>請從選單返回「對獎」並選擇月分。";
     } else {
-        $index++;
-    }
-}
-
-if(count($data)==$index) {
-    echo "沒有中獎...請再接再厲！";
+        $index = 0;
+        echo "中獎編號如下：<br><br>";
+        foreach($data as $value) {
+            if(in_array($value[0],$special)) {
+                echo "特別獎：".$value[0]." | 獎金：1000萬元<br>";
+            } elseif(in_array($value[0],$grand)) {
+                echo "特獎：".$value[0]." | 獎金：200萬元<br>";
+            } elseif(in_array($value[0],$one)) {
+                echo "頭獎：".$value[0]." | 獎金：20萬元<br>";
+            } elseif(in_array($value[2],$two)) {
+                echo "二獎：".$value[0]." | 獎金：4萬元<br>";
+            } elseif(in_array($value[3],$three)) {
+                echo "三獎：".$value[0]." | 獎金：1萬元<br>";
+            } elseif(in_array($value[4],$four)) {
+                echo "四獎：".$value[0]." | 獎金：4千元<br>";
+            } elseif(in_array($value[5],$five)) {
+                echo "五獎：".$value[0]." | 獎金：1千元<br>";
+            } elseif(in_array($value[6],$six)) {
+                echo "六獎：".$value[0]." | 獎金：200元<br>";
+            } else {
+                $index++;
+            }
+        }
+        if(count($data)==$index) {
+            echo "沒有中獎...請再接再厲！";
+        } elseif(count($data)!=$index) {
+            echo "<br><br>恭喜中獎！發大財！";
+        }
+    } 
 } else {
-    echo "<br><br>恭喜中獎！發大財！";
-}
+        echo "<br>你沒有輸入獎號。<br><br>請從選單返回「輸入獎號」，並輸入這一期的獎號。";
+    }
+
 ?>

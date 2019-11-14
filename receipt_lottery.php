@@ -36,7 +36,7 @@ if(isset($_POST['submit'])) {
     }
 } else {
     $_POST['submit']="0月";
-    $prizeNum=["暫無資料", "暫無資料", "暫無資料", "暫無資料", "暫無資料", "暫無資料", "暫無資料", "暫無資料", "暫無資料", "暫無資料", "暫無資料"];
+    $prizeNum=["無", "無", "無", "無", "無", "無", "無", "無", "無", "無", "無"];
 }
 ?>
 <!DOCTYPE html>
@@ -67,6 +67,9 @@ if(isset($_POST['submit'])) {
     input {
         width: 43%;
     }
+    .prizeNum {
+        color: #A52A2A;
+    }
 </style>
 <body>
 <form action="receipt_lottery.php" method="post">
@@ -88,21 +91,21 @@ if(isset($_POST['submit'])) {
         </tr>
         <tr>
             <td>特別獎</td>
-            <td colspan="4">
+            <td colspan="4" class="prizeNum">
                 <?=$prizeNum[3];?>
             </td>
             <td>1000萬</td>
         </tr>
         <tr>
             <td>特獎</td>
-            <td colspan="4">
+            <td colspan="4" class="prizeNum">
                 <?=$prizeNum[4];?>
             </td>
             <td>200萬</td>
         </tr>
         <tr>
             <td>頭獎</td>
-            <td colspan="4">
+            <td colspan="4" class="prizeNum">
                 <?=$prizeNum[5]."<br>";?><?=$prizeNum[6]."<br>";?><?=$prizeNum[7];?>
             </td>
             <td>20萬</td>
@@ -134,7 +137,7 @@ if(isset($_POST['submit'])) {
         </tr>
         <tr>
             <td>增開</td>
-            <td colspan="4">
+            <td colspan="4" class="prizeNum">
                 <?=$prizeNum[8]."<br>";?><?=$prizeNum[9]."<br>";?><?=$prizeNum[10];?>
             </td>
             <td>2百元</td>
