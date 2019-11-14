@@ -2,6 +2,7 @@
 <style>
     body {
         text-align: center;
+        padding: 3%;
     }
 </style>
 <?php
@@ -51,9 +52,15 @@ FROM `lottery` WHERE `year`='$year' && `month`='$month'";
 $special=$pdo->query($sqlOther)->fetch();
 
 // 所有發票資料
-$sqlRecpt="SELECT `r_num`, `amount`, substring(`r_num`,2,7), substring(`r_num`,3,6), substring(`r_num`,4,5), substring(`r_num`,5,4), substring(`r_num`,6,3) FROM `receipt` WHERE `year`='$year' && `month`='$month'";
+$sqlRecpt="SELECT `r_num`, `amount`, substring(`r_num`,2,7), substring(`r_num`,3,6), substring(`r_num`,4,5), substring(`r_num`,5,4), substring(`r_num`,6,3) 
+FROM `receipt` WHERE `year`='$year' && `month`='$month'";
 $data=$pdo->query($sqlRecpt)->fetchAll();
+?>
 
+中獎編號如下：<br><br>
+
+<?php
+$index = 0;
 foreach($data as $value) {
     if(in_array($value[0],$special)) {
         echo "特別獎：".$value[0]." | 獎金：1000萬元<br>";
@@ -71,6 +78,14 @@ foreach($data as $value) {
         echo "五獎：".$value[0]." | 獎金：1千元<br>";
     } elseif(in_array($value[6],$six)) {
         echo "六獎：".$value[0]." | 獎金：200元<br>";
+    } else {
+        $index++;
     }
+}
+
+if(count($data)==$index) {
+    echo "沒有中獎...請再接再厲！";
+} else {
+    echo "<br><br>恭喜中獎！發大財！";
 }
 ?>

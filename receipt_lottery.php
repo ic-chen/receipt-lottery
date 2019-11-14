@@ -1,11 +1,14 @@
 <?php
 include_once "db_info.php";
 
-$year=date("Y");
-
-function showList($m) {
-    global $pdo;
+if(!empty($_POST['year'])) {
+    $year=$_POST['year'];
+} else {
     $year=date("Y");
+}
+
+function showList($year,$m) {
+    global $pdo;
     $sql="SELECT * FROM `lottery` WHERE `year`='$year' && `month`='$m'";
     // echo $sql;
     $data=$pdo->query($sql)->fetch();
@@ -14,22 +17,22 @@ function showList($m) {
 if(isset($_POST['submit'])) {
     $month=["1~2月", "3~4月", "5~6月", "7~8月", "9~10月", "11~12月"];
     if($_POST['submit']==$month[0]) {
-        $prizeNum=showList("1,2");
+        $prizeNum=showList($year,"1,2");
     }
     if($_POST['submit']==$month[1]) {
-        $prizeNum=showList("3,4");
+        $prizeNum=showList($year,"3,4");
     }
     if($_POST['submit']==$month[2]) {
-        $prizeNum=showList("5,6");
+        $prizeNum=showList($year,"5,6");
     }
     if($_POST['submit']==$month[3]) {
-        $prizeNum=showList("7,8");
+        $prizeNum=showList($year,"7,8");
     }
     if($_POST['submit']==$month[4]) {
-        $prizeNum=showList("9,10");
+        $prizeNum=showList($year,"9,10");
     }
     if($_POST['submit']==$month[5]) {
-        $prizeNum=showList("11,12");
+        $prizeNum=showList($year,"11,12");
     }
 } else {
     $_POST['submit']="0月";
@@ -46,17 +49,23 @@ if(isset($_POST['submit'])) {
     <link rel=stylesheet type="text/css" href="./css/main.css">
 </head>
 <style>
-table tr:nth-child(1) {
+    table tr:nth-child(1) {
         height: 10%;
     }
-table tr:nth-child(1) td {
+    table tr:nth-child(2) {
+        height: 10%;
+    }
+    table tr:nth-child(1) td {
         width: 16.6%;
     }
-input[type="submit" i] {
+    input[type="submit" i] {
         font-size: 2.5vw;
         width: 80%;
         height: 60%;
         padding: 1px 1px;
+    }
+    input {
+        width: 43%;
     }
 </style>
 <body>
@@ -71,9 +80,9 @@ input[type="submit" i] {
             <td><input type="submit" name="submit" value="11~12月"></td>
         </tr>
         <tr>
-            <td colspan="2"><?=$year;?>年</td>
-            <td colspan="2"><?=$_POST['submit'];?></td>
-            <td colspan="2">
+            <td colspan="2"><input type="number" name="year" id="year">(西)年</td>
+            <td colspan="3"><?=$year."年&emsp;".$_POST['submit'];?></td>
+            <td>
                 <input type="button" name="button" value="對獎" onclick="location.href='lottery.php?year=<?=$year;?>&month=<?=$prizeNum[2];?>'">
             </td>
         </tr>
