@@ -1,4 +1,10 @@
 <link rel=stylesheet type="text/css" href="./css/main.css">
+<style>
+    body {
+        text-align: center;
+        padding: 3%;
+    }
+</style>
 <?php
 include_once "db_info.php";
 

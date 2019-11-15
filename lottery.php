@@ -60,39 +60,48 @@ $data=$pdo->query($sqlRecpt)->fetchAll();
 <?php
 if(!empty($year) && !empty($month)) {
     if($month=="無") {
-        echo "<br>你沒有選擇月分。<br>請從選單返回「對獎」並選擇月分。";
+        echo "<br>你沒有選擇月分。<br>請返回並選擇月分。";
     } else {
-        $index = 0;
+        $zero = 0;
+        $s=0; $g=0; $f1=0; $s2=0; $t3=0; $f4=0; $f5=0; $s6=0;
         echo "中獎編號如下：<br><br>";
         foreach($data as $value) {
             if(in_array($value[0],$special)) {
+                $s++;
                 echo "特別獎：".$value[0]." | 獎金：1000萬元<br>";
             } elseif(in_array($value[0],$grand)) {
+                $g++;
                 echo "特獎：".$value[0]." | 獎金：200萬元<br>";
             } elseif(in_array($value[0],$one)) {
+                $f1++;
                 echo "頭獎：".$value[0]." | 獎金：20萬元<br>";
             } elseif(in_array($value[2],$two)) {
+                $s2++;
                 echo "二獎：".$value[0]." | 獎金：4萬元<br>";
             } elseif(in_array($value[3],$three)) {
+                $t3++;
                 echo "三獎：".$value[0]." | 獎金：1萬元<br>";
             } elseif(in_array($value[4],$four)) {
+                $f4++;
                 echo "四獎：".$value[0]." | 獎金：4千元<br>";
             } elseif(in_array($value[5],$five)) {
+                $f5++;
                 echo "五獎：".$value[0]." | 獎金：1千元<br>";
             } elseif(in_array($value[6],$six)) {
+                $s6++;
                 echo "六獎：".$value[0]." | 獎金：200元<br>";
             } else {
-                $index++;
+                $zero++;
             }
         }
-        if(count($data)==$index) {
+        if(count($data)==$zero) {
             echo "沒有中獎...請再接再厲！";
-        } elseif(count($data)!=$index) {
-            echo "<br><br>恭喜中獎！發大財！";
+        } elseif(count($data)!=$zero) {
+            echo "<br><br>恭喜中獎！";
+            echo "<br>你一共中了".intval(($s*10000000)+($g*2000000)+($f1*200000)+($s2*40000)+($t3*10000)+($f4*4000)+($f5*1000)+($s6*200))."元！";
         }
     } 
 } else {
-        echo "<br>你沒有輸入獎號。<br><br>請從選單返回「輸入獎號」，並輸入這一期的獎號。";
+        echo "<br>沒有這一期的獎號。<br><br>請前往「輸入獎號」，並輸入這一期的獎號。";
     }
-
 ?>
