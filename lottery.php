@@ -96,7 +96,7 @@ if(!empty($year) && !empty($month)) {
         }
         if(count($data)==$zero) {
             echo "沒有中獎...請再接再厲！";
-        } elseif(count($data)!=$zero) {
+        } else {
             echo "<br><br>恭喜中獎！";
             echo "<br>你一共獲得".intval(($s*10000000)+($g*2000000)+($f1*200000)+($s2*40000)+($t3*10000)+($f4*4000)+($f5*1000)+($s6*200))."元！";
         }
