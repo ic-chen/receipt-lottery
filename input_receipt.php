@@ -8,7 +8,7 @@
 <?php
 include_once "db_info.php";
 
-if(!empty($_POST['year']) || isset($_POST['month']) || isset($_POST['en']) || isset($_POST['num']) || isset($_POST['amount'])) {
+if(!empty($_POST['year']) && !empty($_POST['month']) || !empty($_POST['en']) || !empty($_POST['num']) || !empty($_POST['amount'])) {
     $year=$_POST['year'];
     $month=$_POST['month'];
     $month="$month";
@@ -26,6 +26,6 @@ if(!empty($_POST['year']) || isset($_POST['month']) || isset($_POST['en']) || is
         echo "發票號碼不是8位數，請重新輸入。";
     }
 } else {
-    echo "未輸入成功。";
+    echo "欄位空白。";
 }
 ?>
